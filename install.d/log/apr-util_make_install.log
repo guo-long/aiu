@@ -1,0 +1,48 @@
+Sat Sep 23 16:02:27 CST 2017
+make[1]: Entering directory '/usr/local/src/apr-util-1.6.0'
+make[1]: Nothing to be done for 'local-all'.
+make[1]: Leaving directory '/usr/local/src/apr-util-1.6.0'
+/usr/local/apr/build-1/mkdir.sh /usr/local/apr-util/include/apr-1 /usr/local/apr-util/lib/pkgconfig \
+	     /usr/local/apr-util/lib /usr/local/apr-util/bin
+mkdir /usr/local/apr-util
+mkdir /usr/local/apr-util/include
+mkdir /usr/local/apr-util/include/apr-1
+mkdir /usr/local/apr-util/lib
+mkdir /usr/local/apr-util/lib/pkgconfig
+mkdir /usr/local/apr-util/bin
+for f in /usr/local/src/apr-util-1.6.0/include/*.h /usr/local/src/apr-util-1.6.0/include/*.h; do \
+	/usr/bin/install -c -m 644 ${f} /usr/local/apr-util/include/apr-1; \
+done
+/usr/bin/install -c -m 644 apr-util.pc /usr/local/apr-util/lib/pkgconfig/apr-util-1.pc
+list=''; for i in $list; do \
+	( cd $i ; make DESTDIR= install ); \
+done
+/bin/bash /usr/local/apr/build-1/libtool --mode=install /usr/bin/install -c -m 755 libaprutil-1.la /usr/local/apr-util/lib
+libtool: install: /usr/bin/install -c -m 755 .libs/libaprutil-1.so.0.6.0 /usr/local/apr-util/lib/libaprutil-1.so.0.6.0
+libtool: install: (cd /usr/local/apr-util/lib && { ln -s -f libaprutil-1.so.0.6.0 libaprutil-1.so.0 || { rm -f libaprutil-1.so.0 && ln -s libaprutil-1.so.0.6.0 libaprutil-1.so.0; }; })
+libtool: install: (cd /usr/local/apr-util/lib && { ln -s -f libaprutil-1.so.0.6.0 libaprutil-1.so || { rm -f libaprutil-1.so && ln -s libaprutil-1.so.0.6.0 libaprutil-1.so; }; })
+libtool: install: /usr/bin/install -c -m 755 .libs/libaprutil-1.lai /usr/local/apr-util/lib/libaprutil-1.la
+libtool: install: /usr/bin/install -c -m 755 .libs/libaprutil-1.a /usr/local/apr-util/lib/libaprutil-1.a
+libtool: install: chmod 644 /usr/local/apr-util/lib/libaprutil-1.a
+libtool: install: ranlib /usr/local/apr-util/lib/libaprutil-1.a
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/sbin" ldconfig -n /usr/local/apr-util/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/local/apr-util/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+/usr/bin/install -c -m 644 aprutil.exp /usr/local/apr-util/lib
+/usr/bin/install -c -m 755 apu-config.out /usr/local/apr-util/bin/apu-1-config
