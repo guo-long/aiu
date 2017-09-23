@@ -1,1 +1,1 @@
-# Scripts For Install Packages On Ubuntu
+# Scripts For Installing Packages On Ubuntu
